@@ -1,0 +1,23 @@
+<!doctype HTML>
+<html>
+  <head>
+    <title>Weather Lookup</title>
+    <link rel="stylesheet" href="{{ url_for("static", filename="style.css") }}">
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="content">
+        <div class="row1">
+          <h1>You are:</h1>
+        </div>
+        <div class="row2">
+          <div class="portrait">
+            <img src={{character.image}}>
+          </div>
+          <div class="name">
+            <h1>{{character.name}}</h1>
+          </div>
+        </div>
+    </div>
+  </body>
+</html>
