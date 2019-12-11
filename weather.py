@@ -1,4 +1,9 @@
 import requests
+import datetime
+import hashlib
+import json
+import requests
+
 
 
 def getWeather(city):
@@ -7,4 +12,3 @@ def getWeather(city):
     print(result.content)
     # Using .json() on the result to get a nice easy to use object
     # .content just gives us the string value which we can't access like below
-    return result.json()["weather"][0]["description"]

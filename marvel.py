@@ -1,6 +1,8 @@
 import requests
 import datetime
 import hashlib
+import json
+import requests
 
 
 def getMarvelCharacter(name):
@@ -17,9 +19,14 @@ def getMarvelCharacter(name):
         .format(name=name, apikey=publicKey, ts=ts, hash=hash.hexdigest())
     result = requests.get(request_url)
 
-    print(request_url)
-    print(result)
-    print(result.json())
+    # print(request_url)
+    # print(result)
+    # print(result.json())
+    json_data = json.loads(result.content)
+    image_url = json_data['data']['results'][0]['thumbnail']['path'] + "/portrait_incredible.jpg"
+    print(image_url)
+    return image_url
+
 
 
 if __name__ == '__main__':
