@@ -1,4 +1,7 @@
 import requests
+import datetime
+import hashlib
+
 
 def getWeather(city):
     # Make a GET request and read the weather data
@@ -7,3 +10,23 @@ def getWeather(city):
     # Using .json() on the result to get a nice easy to use object
     # .content just gives us the string value which we can't access like below
     return result.json()["weather"][0]["description"]
+
+
+def getMarvelCharacter(name):
+    ts = datetime.datetime.now()
+    publicKey = 'e4c6c6bcff21d621eb1306bdad526d24'
+    privateKey = 'INSERT PRIVATE API KEY'
+    hash = hashlib.md5('{ts}{privateKey}{publicKey}'.format(ts=ts, privateKey=privateKey, publicKey=publicKey).encode())
+
+    request_url = "https://gateway.marvel.com:443/v1/public/characters?nameStartsWith={name}&apikey={apikey}&ts={ts}&hash={hash}"\
+        .format(name=name, ts=ts, hash=hash.hexdigest(), apikey=publicKey)
+    result = requests.get(request_url)
+
+    print(request_url)
+    print(result)
+    print(result.content)
+
+
+if __name__ == '__main__':
+    getMarvelCharacter('hulk')
+
