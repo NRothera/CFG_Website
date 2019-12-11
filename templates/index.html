@@ -1,0 +1,32 @@
+<!doctype HTML>
+<html>
+  <head>
+    <title>Weather Lookup</title>
+    <!-- When importing css files using flask we need a slightly different url format
+         You'll need to have your style.css file in the static folder -->
+    <link rel="stylesheet" href="{{ url_for("static", filename="style.css") }}">
+  </head>
+  <body>
+    <div class="content">
+      <div class="form">
+        <!-- Creating a simple form with one textbox,
+            the result of which will be sent to the /lookup endpoint
+            which flask should be handling -->
+        <form method='post' action="/lookup">
+          <label for="search">Please enter a UK city:</label>
+          <input type="text" name="search"/>
+          <input type="submit"/>
+        </form>
+      </div>
+
+      <!-- Here we are using the conditional syntax to only show
+          the contained html when we have a result to show -->
+      {% if result %}
+      <div>
+        <!-- Pulling out of the result object the different values we passed through -->
+        <h1>The weather in {{result.city}} is {{result.weather}}</h1>
+      </div>
+      {% endif %}
+    </div>
+  </body>
+</html>

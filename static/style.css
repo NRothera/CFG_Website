@@ -1,0 +1,9 @@
+body {
+  margin: 0px;
+  background-color: #EEEEEE;
+}
+
+.content {
+  padding-top: 300px;
+  display: flex;
+}
