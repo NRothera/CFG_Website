@@ -32,15 +32,6 @@
           <input type="submit"/>
         </form>
       </div>
-
-      <!-- Here we are using the conditional syntax to only show
-          the contained html when we have a result to show -->
-      {% if result %}
-      <div>
-        <!-- Pulling out of the result object the different values we passed through -->
-        <h1>Your character is: {result.name}</h1>
-      </div>
-      {% endif %}
     </div>
   </body>
 </html>
