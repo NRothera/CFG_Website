@@ -1,7 +1,7 @@
 <!doctype HTML>
 <html>
   <head>
-    <title>Weather Lookup</title>
+    <title>Marvel Questionnaire</title>
     <!-- When importing css files using flask we need a slightly different url format
          You'll need to have your style.css file in the static folder -->
     <link rel="stylesheet" href="{{ url_for("static", filename="style.css") }}">
@@ -13,8 +13,22 @@
             the result of which will be sent to the /lookup endpoint
             which flask should be handling -->
         <form method='post' action="/lookup">
-          <label for="search">Please enter a UK city:</label>
-          <input type="text" name="search"/>
+          <label for="arrows">Question 1: Do you like arrows?</label><br>
+          <input type="radio" name="arrows" value="yes">Yes<br>
+          <input type="radio" name="arrows" value="no">No<br>
+
+          <label for="iron">Question 2: Do you like iron?</label><br>
+          <input type="radio" name="iron" value="yes">Yes<br>
+          <input type="radio" name="iron" value="no">No<br>
+
+          <label for="america">Question 3: Do you really like America?</label><br>
+          <input type="radio" name="america" value="yes">Yes<br>
+          <input type="radio" name="america" value="no">No<br>
+
+          <label for="temper">Question 4: Do you have a bad temper?</label><br>
+          <input type="radio" name="temper" value="yes">Yes<br>
+          <input type="radio" name="temper" value="no">No<br>
+
           <input type="submit"/>
         </form>
       </div>
@@ -24,7 +38,7 @@
       {% if result %}
       <div>
         <!-- Pulling out of the result object the different values we passed through -->
-        <h1>The weather in {{result.city}} is {{result.weather}}</h1>
+        <h1>Your character is: {result.name}</h1>
       </div>
       {% endif %}
     </div>
